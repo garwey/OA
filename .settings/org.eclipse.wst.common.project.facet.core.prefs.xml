@@ -1,4 +1,9 @@
 <root>
+  <facet id="web.struts2"/>
+  <facet id="wst.jsdt.web"/>
+  <facet id="jst.web"/>
+  <facet id="jst.web.jstl"/>
+  <facet id="java"/>
   <facet id="me.spring">
     <node name="libprov">
       <attribute name="config-id" value="me.spring_4.1"/>
@@ -9,10 +14,4 @@
       <attribute name="version-id" value="4.1"/>
     </node>
   </facet>
-  <facet id="jst.web"/>
-  <facet id="wst.jsdt.web"/>
-  <facet id="jst.web.jstl"/>
-  <facet id="java"/>
-  <facet id="web.struts2"/>
-  <facet id="me.hibernate"/>
 </root>

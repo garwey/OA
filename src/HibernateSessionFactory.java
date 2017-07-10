@@ -1,11 +1,8 @@
-package hibernate;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 /**
  * Configures and provides access to Hibernate sessions, tied to the
@@ -31,13 +28,8 @@ public class HibernateSessionFactory {
 	static {
     	try {
 			configuration.configure();
-			serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
-			try {
-				sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
-			} catch (Exception e) {
-				StandardServiceRegistryBuilder.destroy(serviceRegistry);
-				e.printStackTrace();
-			}
+			serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		} catch (Exception e) {
 			System.err.println("%%%% Error Creating SessionFactory %%%%");
 			e.printStackTrace();
@@ -75,13 +67,8 @@ public class HibernateSessionFactory {
 	public static void rebuildSessionFactory() {
 		try {
 			configuration.configure();
-			serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
-			try {
-				sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
-			} catch (Exception e) {
-				StandardServiceRegistryBuilder.destroy(serviceRegistry);
-				e.printStackTrace();
-			}
+			serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		} catch (Exception e) {
 			System.err.println("%%%% Error Creating SessionFactory %%%%");
 			e.printStackTrace();

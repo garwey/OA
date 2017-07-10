@@ -1,11 +1,11 @@
 #MyEclipse Hibernate Properties
-#Wed Jul 05 21:23:01 CST 2017
+#Mon Jul 10 19:52:15 CST 2017
 genVersionTag=false
-sessionFactoryName=hibernate.HibernateSessionFactory
+sessionFactoryName=.HibernateSessionFactory
 genAnnotations=false
-configFile=/OA/src/hibernate.cfg.xml
+configFile=/OA/src/applicationContext.xml
 reStrategyClass=
-sessionFactoryId=
+sessionFactoryId=sessionFactory
 profile=
 detectM2M=false
 genBasicCompId=false

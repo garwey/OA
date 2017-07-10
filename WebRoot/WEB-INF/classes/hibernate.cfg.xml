@@ -5,27 +5,15 @@
 
 <hibernate-configuration>
 
-<session-factory>
+	<session-factory>
 
-	<!-- 1，数据库连接信息 -->
-	<property name="dialect">
-		org.hibernate.dialect.MySQL5InnoDBDialect
-	</property>
-	<property name="connection.url">
-		jdbc:mysql://localhost:3306/oa
-	</property>
-	<property name="connection.driver_class">
-		com.mysql.jdbc.Driver
-	</property>
-	<property name="connection.username">root</property>
-	<property name="connection.password">root</property>
+		<!-- 1，数据库连接信息 -->
 
-	<!-- 2，其他配置 -->
-	<property name="show_sql">true</property>
-	<property name="hbm2ddl.auto">create</property>
+		<!-- 2，其他配置 -->
 
-	<!-- 3，导入映射文件 -->
+		<!-- 3，导入映射文件 -->
+		<mapping class="oa.domain.User" />
 
-</session-factory>
+	</session-factory>
 
 </hibernate-configuration>
